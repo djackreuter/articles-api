@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
 
   # make title and body required
-  validates :title, presance: true
-  validates :body, presance: true
+  validates :title, presence: true
+  validates :body, presence: true
 end
