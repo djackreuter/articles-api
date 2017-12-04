@@ -5,6 +5,12 @@ module Api
         articles = Article.order('created_at DESC')
         render json: {status: 200, message: 'Request successful', data:articles}, status: :ok
       end
+
+      def show
+        article = Article.find(params[:id])
+        render json: {status: 200, message: 'Request successful', data:article}, status: :ok
+      end
+      
     end
   end
 end
