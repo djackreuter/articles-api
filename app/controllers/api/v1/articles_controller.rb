@@ -28,7 +28,7 @@ module Api
       end
 
       def update
-        article = Atricle.find(params[:id])
+        article = Article.find(params[:id])
 
         if article.update_attributes(article_params)
           render json: {status: 200, message: 'Article updated successfully', data:article}, status: :ok
