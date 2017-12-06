@@ -21,6 +21,22 @@ module Api
         end
       end
 
+      def destroy
+        article = Article.find(params[:id])
+        article.destroy
+        render json: {status: 200, message: 'Deleted successfully', data:article}, status: :ok
+      end
+
+      def update
+        article = Atricle.find(params[:id])
+
+        if article.update_attributes(article_params)
+          render json: {status: 200, message: 'Article updated successfully', data:article}, status: :ok
+        else
+          render json: {status: 418, message: 'Cant brew coffee with a tea pot!', data:article.errors}, status: :unprocessable_entity
+        end
+      end
+
       private
         def article_params
           params.permit(:title, :body)
